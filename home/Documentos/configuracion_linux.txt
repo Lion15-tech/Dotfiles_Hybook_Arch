@@ -1,0 +1,87 @@
+# GUÍA DE RUTAS Y CONFIGURACIÓN — HYBOOK ARCH LINUX (CYBERPUNK)
+
+## 1. Entorno Gráfico y Ventanas
+* **Gestor de ventanas (i3):**
+  * Archivo: `~/.config/i3/config`
+  * Qué edita: Atajos de teclado, distribución de teclado (`us`/`latam`), bordes de ventana, reglas flotantes y programas que arrancan al iniciar sesión (`polybar`, `picom`, `feh`, `xss-lock`).
+  * Recargar cambios: `Win + Shift + R`
+
+* **Pantalla de bloqueo (i3lock-color):**
+  * Archivo: `~/.config/i3/lock.sh`
+  * Qué edita: Nivel de desenfoque (`--blur`), colores neón del anillo (`#00f0ff`, `#ff0055`, `#00ff66`, `#ffee00`), reloj y textos del HUD.
+  * Probar bloqueo: `Win + Shift + X`
+
+* **Barra superior (Polybar):**
+  * Carpeta: `~/.config/polybar/`
+  * Archivos:
+    * `~/.config/polybar/config.ini` -> Módulos (workspaces, volumen, brillo, RAM, CPU, Wi-Fi, batería `BAT0`/adaptador `ADP1`, fecha/hora) y colores.
+    * `~/.config/polybar/launch.sh` -> Script que inicia o reinicia la barra.
+
+* **Compositor de transparencias y efectos (Picom):**
+  * Archivo: `~/.config/picom/picom.conf`
+  * Qué edita: Opacidad de ventanas y terminal, sombras, animaciones de desvanecimiento (*fading*) y *vsync*.
+
+* **Menú lanzador de aplicaciones (Rofi):**
+  * Carpeta: `~/.config/rofi/`
+  * Archivo principal: `~/.config/rofi/config.rasi` (y archivos `.rasi` de tema en la misma carpeta).
+  * Abrir menú: `Win + D`
+
+* **Fondo de pantalla (feh):**
+  * Carpeta de wallpapers: `~/Imagenes/Fondos/`
+  * Fondo activo: `~/Imagenes/Fondos/cyberpunk_rosa(2560x1440).jpg`
+  * Dónde cambiarlo: En la línea `exec_always --no-startup-id feh --bg-fill ...` dentro de `~/.config/i3/config` (y en `/usr/share/pixmaps/cyberpunk_bg.jpg` si lo usas en el arranque).
+
+---
+
+## 2. Terminal, Shell y Scripts
+* **Emulador de terminal (Kitty):**
+  * Carpeta: `~/.config/kitty/`
+  * Archivo principal: `~/.config/kitty/kitty.conf`
+  * Qué edita: Fuente (`JetBrainsMono Nerd Font`), opacidad de fondo, paleta de colores, cursor y márgenes internos.
+
+* **Shell, Prompt y Alias (Bash):**
+  * Archivos: `~/.bashrc` y `~/.bash_profile`
+  * Qué edita: Diseño del prompt en la terminal, alias personalizados (`badapple`, `asciiquarium`, `ls`, `ll`) y variables de entorno.
+  * Aplicar cambios sin cerrar terminal: `source ~/.bashrc`
+
+* **Scripts personales y Multimedia:**
+  * Script de Bad Apple: `~/reproducir_bad_apple.sh` (reproduce `~/Videos/bad_apple.mp4` en terminal con `mpv --vo=tct`).
+  * Control de audio (PipeWire + `sof-firmware` ES8336): Ajustable desde terminal con `alsamixer` o `pactl`.
+
+---
+
+## 3. Inicio de Sesión y Arranque (Sistema)
+* **Gestor de inicio de sesión (LightDM + web-greeter):**
+  * Config de LightDM: `/etc/lightdm/lightdm.conf`
+  * Config de web-greeter: `/etc/lightdm/web-greeter.toml` (define `theme = "cyberpunk"`).
+  * Carpeta de tu tema Cyberpunk: `/usr/share/web-greeter/themes/cyberpunk/`
+    * `index.yml` -> Manifiesto que apunta a `index.html`.
+    * `index.html` -> Estructura HTML del panel y selectores de usuario/sesión.
+    * `style.css` -> Colores neón, bordes, tipografía y animaciones.
+    * `main.js` -> Reloj en vivo, lluvia digital en Canvas y autenticación con LightDM.
+  * Otros temas instalados: `/usr/share/web-greeter/themes/` (`dracula`, `gruvbox`, `simple`).
+
+* **Menú de arranque Dual Boot (GRUB):**
+  * Archivo de configuración: `/etc/default/grub`
+  * Carpeta de temas/fondos de GRUB: `/boot/grub/` y `/boot/grub/themes/`
+  * Comando obligatorio tras modificar `/etc/default/grub`:
+    `sudo grub-mkconfig -o /boot/grub/grub.cfg`
+
+---
+
+## 4. Paquetes, Ofimática y Credenciales
+* **Gestores de paquetes (`pacman` y `yay`):**
+  * Config de pacman: `/etc/pacman.conf`
+  * Config de yay (AUR): `~/.config/yay/config.json`
+  * Actualizar todo el sistema (repositorios oficiales + AUR): `yay -Syu`
+
+* **Suite ofimática (LibreOffice):**
+  * Ejecutable: `/usr/bin/libreoffice`
+  * Configuración de usuario: `~/.config/libreoffice/`
+
+* **Llaves SSH (GitHub):**
+  * Carpeta: `~/.ssh/` (llaves privada/pública y archivo `~/.ssh/config`).
+
+
+
+

@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+i3lock \
+  --blur 7 \
+  --clock \
+  --indicator \
+  --radius=120 \
+  --ring-width=8.0 \
+  --time-str="%H:%M:%S" \
+  --date-str="%a %d/%m/%Y" \
+  --time-font="JetBrainsMono Nerd Font" \
+  --date-font="JetBrainsMono Nerd Font" \
+  --verif-font="JetBrainsMono Nerd Font" \
+  --wrong-font="JetBrainsMono Nerd Font" \
+  --greeter-font="JetBrainsMono Nerd Font" \
+  --time-size=32 \
+  --date-size=14 \
+  --verif-size=16 \
+  --wrong-size=16 \
+  --greeter-size=13 \
+  --time-pos="ix:iy-10" \
+  --date-pos="ix:iy+18" \
+  --greeter-pos="ix:iy+155" \
+  --verif-text="VERIFICANDO..." \
+  --wrong-text="DENEGADO" \
+  --noinput-text="VACÍO" \
+  --lock-text="BLOQUEANDO..." \
+  --lockfailed-text="ERROR" \
+  --greeter-text="HYBOOK-ARCH // BLOQUEADO" \
+  --inside-color=0b0e14cc \
+  --ring-color=00f0ffff \
+  --line-uses-inside \
+  --keyhl-color=ff0055ff \
+  --bshl-color=ffee00ff \
+  --separator-color=0b0e14ff \
+  --insidever-color=0b0e14dd \
+  --ringver-color=00ff66ff \
+  --insidewrong-color=2a0815dd \
+  --ringwrong-color=ffee00ff \
+  --time-color=ffffffff \
+  --date-color=00f0ffff \
+  --greeter-color=ff0055ff \
+  --verif-color=00ff66ff \
+  --wrong-color=ffee00ff \
+  "$@"

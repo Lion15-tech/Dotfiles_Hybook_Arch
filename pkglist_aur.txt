@@ -1,0 +1,6 @@
+i3lock-color
+joshuto
+localsend-bin
+web-greeter
+yay
+yay-debug
